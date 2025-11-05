@@ -6,6 +6,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adicionar Tarefa - TaskHub</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+</style>
   <link rel="stylesheet" href="/styles.css">
 </head>
 
@@ -23,13 +26,15 @@
   <main>
     <h2>Adicionar Tarefa</h2>
     <form id="addTaskForm">
-      <label for="title">Título:</label>
-      <input type="text" id="title" name="title" required>
+      <label class="espaço" for="title">Título:</label>
       <br>
-      <label for="description">Descrição:</label>
-      <textarea id="description" name="description" required></textarea>
+      <input class="espaço caixadetexto" type="text" id="title" name="title" required>
       <br>
-      <button type="submit">Adicionar Tarefa</button>
+      <label class="espaço" for="description">Descrição:</label>
+      <br>
+      <textarea class="espaço caixadetexto" id="description" name="description" required></textarea>
+      <br>
+      <button class="espaço botao" type="submit">Adicionar Tarefa</button>
     </form>
   </main>
   <footer>
