@@ -1,9 +1,10 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Sour Gummy", sans-serif;
+    background-color: #c3e1ff;
 }
 
 header {
-    background-color: #f8f9fa;
+    background-color: #f4a2ff;
     padding: 20px;
     text-align: center;
 }
@@ -12,8 +13,50 @@ main {
     padding: 20px;
 }
 
+h1 {
+    color: rgb(255, 32, 95);
+    font-family: "Sour Gummy", sans-serif;
+}
+
+h2 {
+    text-align: center;
+    color: #8d44b1;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+}
+
+.espaço {
+    margin: 5%;
+}
+
+button {
+    height: 50px;
+    width: 150px;
+    border-radius: 20px;
+    border: none;
+    background-color: #f4a2ff;
+    box-shadow: 5px 5px #88888885;
+    font-family: "Sour Gummy";
+}
+
+.caixadetexto {
+    border-radius: 20px;
+    background-color: rgb(181, 255, 206);
+    height: 50px;
+}
+
+li :hover {
+    color: #ff0048;
+    text-decoration: none;
+}
+
 footer {
-    background-color: #f8f9fa;
+    background-color: #f4a2ff;
     padding: 20px;
     text-align: center;
 }
