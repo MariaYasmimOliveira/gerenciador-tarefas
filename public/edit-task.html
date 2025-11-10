@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Tarefa - TaskHub</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+</style>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Bem-vindo ao Gerenciador de Tarefas!</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="/tasks">Minhas Tarefas</a></li>
+        <li><a href="/tasks/add">Adicionar Tarefa</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Editar Tarefa</h2>
+    <form id="editTaskForm">
+      <label class="espaço" for="title">Título:</label>
+      <br>
+      <input class="espaço caixadetexto" type="text" id="title" name="title" required>
+      <br>
+      <label class="espaço" for="description">Descrição:</label>
+      <br>
+      <textarea class="espaço caixadetexto" id="description" name="description" required></textarea>
+      <br>
+      <input type="checkbox" id="completed" name="completed">
+      <label class="espaço" for="completed">Tarefa Concluída</label>
+      <br>
+      <button class="espaço botao" type="submit">Salvar Edição</button>
+    </form>
+  </main>
+  <footer>
+    <p>Este projeto é licenciado sob <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal (CC0 1.0) Public Domain Dedication</a>.</p>
+  </footer>
+  <script src="/edit-task.js"></script>
+</body>
+</html>

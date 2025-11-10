@@ -182,6 +182,68 @@ app.put('/api/task/:taskId/complete', (req, res) => {
   }
 });
 
+// ... (seu código anterior)
+
+// ... Rota para marcar uma tarefa como concluída (app.put('/api/task/:taskId/complete', ...))
+
+/**
+ * Rota para EXCLUIR uma tarefa.
+ * @name DELETE /api/task/:taskId
+ * @function
+ * @param {Object} req - Objeto de requisição do Express.
+ * @param {Object} res - Objeto de resposta do Express.
+ */
+app.delete('/api/task/:taskId', (req, res) => {
+    const taskId = req.params.taskId;
+    const initialLength = tasks.length;
+    
+    // Filtra o array `tasks`, removendo a tarefa com o ID correspondente
+    tasks = tasks.filter(task => task.id !== taskId);
+
+    if (tasks.length < initialLength) {
+        console.log(`Tarefa ${taskId} excluída.`);
+        res.json({ message: 'Tarefa excluída com sucesso!' });
+    } else {
+        res.status(404).json({ message: 'Tarefa não encontrada.' });
+    }
+});
+
+/**
+ * Rota para ATUALIZAR (EDITAR) uma tarefa.
+ * @name PUT /api/task/:taskId
+ * @function
+ * @param {Object} req - Objeto de requisição do Express.
+ * @param {Object} res - Objeto de resposta do Express.
+ */
+app.put('/api/task/:taskId', (req, res) => {
+    const taskId = req.params.taskId;
+    const { title, description, completed } = req.body; // Recebe os novos dados do corpo da requisição
+    const taskIndex = tasks.findIndex(task => task.id === taskId);
+
+    if (taskIndex !== -1) {
+        // Atualiza a tarefa com os novos dados
+        tasks[taskIndex].title = title || tasks[taskIndex].title; 
+        tasks[taskIndex].description = description || tasks[taskIndex].description;
+        
+        // Permite a atualização do status 'completed' se for enviado
+        if (completed !== undefined) {
+            tasks[taskIndex].completed = completed;
+        }
+
+        console.log(`Tarefa ${taskId} atualizada:`, tasks[taskIndex]);
+        res.json({ message: 'Tarefa atualizada com sucesso!', task: tasks[taskIndex] });
+    } else {
+        res.status(404).json({ message: 'Tarefa não encontrada.' });
+    }
+});
+
+// Adicionando a rota para a página de edição
+app.get('/tasks/edit/:taskId', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'edit-task.html'));
+});
+
+// ... (seu código de inicialização do servidor)
+
 /**
  * Inicia o servidor Express.
  * @name listen
